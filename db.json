@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "murugesh",
+      "password": "123456",
+      "accounts": [
+        {
+          "id": 1,
+          "userid": 1,
+          "bankname": "ICICI",
+          "bankaccountnumber": "12345",
+          "bankbranch": "Electronic city phase 1 2nd cross",
+          "bankifsccode": "ICICI0012",
+          "TotalAssets": 7873.35
+        }
+      ]
+    }
+  ],
+  "totalAmount": [
+    {
+      "id": 1,
+      "TotalAssets": 6293.35
+    }
+  ],
+  "payee": [
+    {
+      "acctname": "tarun kumar 1",
+      "nickname": "tarun kumar",
+      "acctnumber": "9876501",
+      "ifsccode": "IYU009875KI",
+      "id": 4
+    }
+  ],
+  "history": [
+    {
+      "id": 1,
+      "fromacctnumber": 12345,
+      "toacctnumber": 4644,
+      "amount": 10,
+      "balance": 7863.15
+    },
+    {
+      "amount": 100,
+      "fromacctnumber": 12345,
+      "toacctnumber": 132132,
+      "balance": 7773.35,
+      "id": 2
+    },
+    {
+      "amount": 121,
+      "fromacctnumber": 12345,
+      "toacctnumber": 2342349458459,
+      "balance": 7752.35,
+      "id": 3
+    },
+    {
+      "amount": 1580,
+      "fromacctnumber": 12345,
+      "toacctnumber": 2342349458459,
+      "balance": 6293.35,
+      "id": 4
+    }
+  ]
+}
