@@ -6,20 +6,20 @@
         
           <!-- Modal Header -->
           <div class="modal-header">
-            <h4 class="modal-title">Delete Payee</h4>
+            <h6 class="modal-title">Delete Payee</h6>
             <button type="button" class="close" data-dismiss="modal" (click) = "hideModel(false)">&times;</button>
           </div>
           
           <!-- Modal body -->
           <div class="modal-body">
-            <p><strong>Are you sure you want to delete?</strong></p>
+            <p>Are you sure you want to delete?</p>
             <!-- {{details.id}} -->
           </div>
           
           <!-- Modal footer -->
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal" (click) = "ShowModelConfirm(details)">Ok</button>
-            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" (click) = "hideModel(false)">Close</button>
+            <button type="button" class="btn btn-outline-danger" data-dismiss="modal" (click) = "ShowModelConfirm(details)">Yes</button>
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal" (click) = "hideModel(false)">No</button>
           </div>
           
         </div>

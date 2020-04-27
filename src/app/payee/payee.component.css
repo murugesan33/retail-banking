@@ -1,44 +1,5 @@
-.my-form
-{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-
-.my-form .row
-{
-    margin-left: 0;
-    margin-right: 0;
-}
-
 .card-header{
-    background-color: rgb(226, 74, 74);
+    background-color: #af3a86;
     color:white;
-}
-
-
-
-h1{
-    color:black;
-}
-.display-4{
-    font-size: 1.5rem;
-}
-.text-white{
-    color:black !important;
-}
-.col-md-3{
-    padding-left:0px;
-}
-label{
-    margin-bottom: 0px;
-    font-size: 12px;
-    font-weight: bold;
-}
-.error{
-    margin:2px;
-    font-size: 13px;
-    font-weight: bold;
-    text-align: center;
-    color:red;
 }
 

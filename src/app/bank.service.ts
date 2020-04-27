@@ -83,7 +83,8 @@ export interface accountTransfer{
   amount: number;
   fromacctnumber: number,
   toacctnumber: number,
-  balance:number,
+  balance:string,
+  transDetails:string
 }
 
 

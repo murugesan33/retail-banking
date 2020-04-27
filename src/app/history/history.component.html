@@ -1,16 +1,13 @@
-<br>
-<br>
-<br>
-<div class="row justify-content-center">
+<div class="row justify-content-center mx-0 py-3">
   <div class="col-md-9">
-    <div class="card">
+    <div class="card border border-dark">
         <div class="card-header">Transaction History</div>
         <div class="card-body">
         <table class="table table-bordered table-hover">
                 <thead class="thead-light">
                 <tr> 
                   <th scope="col">S No.</th>
-                  <th scope="col">Transaction Remarks</th>
+                  <th scope="col">Transaction Details</th>
                   <th scope="col">Withdraw Amount</th>
                   <th scope="col">Balance</th>
                 </tr>
@@ -19,7 +16,7 @@
                  
                 <tr>
                   <td>{{item.id}}</td>
-                  <td>{{item.fromacctnumber}}</td>
+                  <td>{{item.transDetails}}</td>
                   <td>{{item.amount}}</td>
                   <td>{{item.balance}}</td>
                 </tr>

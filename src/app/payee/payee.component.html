@@ -1,40 +1,64 @@
-<br>
-<br>
-<div class="row justify-content-center" *ngIf="!showProduct">
-    <div class="col-md-5">
-            <div class="card">
-                <div class="card-header">{{title}}</div>
-               
-                <div class="card-body">
-                    <form name="my-form" [formGroup]="payeeForm" (ngSubmit)="onSubmit()" >
-                        <div class="form-group row">
-                            <label for="full_name" class="col-md-4 col-form-label text-md-right">Payee Account Name</label>
-                            <div class="col-md-6">
-                                <input type="text" id="acctname" class="form-control" formControlName="acctname" [ngClass] ="{'is-invalid':(acctname.dirty || acctname.touched) && acctname.errors}">
-                            </div>
+<div class="d-flex justify-content-center py-3" *ngIf="!showProduct">
+    <div class="col-md-6">
+        <div class="card border border-dark">
+            <div class="card-header">{{title}}</div>
+
+            <div class="card-body">
+                <form name="my-form" [formGroup]="payeeForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group row">
+                        <label for="full_name" class="col-md-4 col-form-label text-md-right">Payee Account
+                            Name</label>
+                        <div class="col-md-6">
+                            <input type="text" id="acctname" class="form-control  ui-inputtext" formControlName="acctname"
+                                >
+                                <small *ngIf="acctname.invalid && (acctname.dirty || acctname.touched) && acctname.errors "
+                                class="text-danger">
+                                Payee Account is required!.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email_address" class="col-md-4 col-form-label text-md-right">Payee
+                            Nickname</label>
+                        <div class="col-md-6">
+                            <input type="text" id="nickname" class="form-control  ui-inputtext" formControlName="nickname"
+                                >
+
+                                <small *ngIf="nickname.invalid && (nickname.dirty || nickname.touched) && nickname.errors "
+                                class="text-danger">
+                                Payee Nickname is required!.
+                            </small>  
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email_address" class="col-md-4 col-form-label text-md-right">Payee Nickname</label>
-                            <div class="col-md-6">
-                                <input type="text" id="nickname" class="form-control" formControlName="nickname" [ngClass] ="{'is-invalid':(nickname.dirty || nickname.touched) && nickname.errors}">
-                            </div>
-                            
-                        </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="user_name" class="col-md-4 col-form-label text-md-right">Payee Account Number</label>
-                            <div class="col-md-6">
-                                <input type="text" id="acctnumber" class="form-control" formControlName="acctnumber" [ngClass]="{'is-invalid':(acctnumber.dirty || acctnumber.touched) && acctnumber.errors}">
-                            </div>
+                    <div class="form-group row">
+                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Payee Account
+                            Number</label>
+                        <div class="col-md-6">
+                            <input type="text" id="acctnumber" class="form-control  ui-inputtext" formControlName="acctnumber"
+                                >
+
+                                <small *ngIf="acctnumber.invalid && (acctnumber.dirty || acctnumber.touched) && acctnumber.errors "
+                                class="text-danger">
+                                Payee Account Number is required!.
+                            </small>   
                         </div>
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Bank IFSC Code</label>
-                            <div class="col-md-6">
-                                <input type="text" id="ifsccode" class="form-control" formControlName="ifsccode" [ngClass]="{'is-invalid':(ifsccode.dirty || ifsccode.touched) && ifsccode.errors}">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-md-4 col-form-label text-md-right">Bank IFSC Code</label>
+                        <div class="col-md-6">
+                            <input type="text" id="ifsccode" class="form-control  ui-inputtext" formControlName="ifsccode"
+                               >
+
+                                <small *ngIf="ifsccode.invalid && (ifsccode.dirty || ifsccode.touched) && ifsccode.errors "
+                                class="text-danger">
+                                Payee Account Number is required!.
+                            </small>
                         </div>
-                        <!-- <div class="form-group row">
+                    </div>
+                    <!-- <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">Current Date</label>
                             <div class="col-md-6">
                                 <div class="input-group">
@@ -47,52 +71,55 @@
                                  
                             </div>
                         </div> -->
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">
                             Submit
-                            </button>
-                            &nbsp;&nbsp;
-                                        <button type="button" class="btn btn-danger" (click)="CancelPayee()">
-                                            Cancel
-                                            </button>
-                        </div>
-                    </form>
-                </div>   
-        </div>         
+                        </button>
+                        &nbsp;&nbsp;
+                        <button type="button" class="btn btn-danger" (click)="CancelPayee()">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>        
+</div>
 
-<div class="row justify-content-center" *ngIf="showProduct">
-    <div class="col-md-9 display-block" style="padding-left:0xp;">
-        <button style="margin-left: 0rem !important;" class="btn btn-primary float-left m-3" (click)="addNewPayee()">Add Payee</button>
-        
-        <!-- <span class="float-right p-3" style="padding-right: 0rem !important;">
-            <input type="text" class="form-control" placeholder="Search Here" #current (keyup)="filterItem(current.value)" /> 
-        </span> -->
+<div class="row justify-content-center py-3 mx-0" *ngIf="showProduct">
+  
+    <div class="col-md-7">
+        <button class="btn btn-outline-dark my-2" (click)="addNewPayee()">Add Payee</button>
+
+        <span class="float-right my-2">
+            <input type="text" class="form-control border border-dark" placeholder="Search Here" #current (keyup)="filterItem(current.value)" /> 
+        </span>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-7">
         <table class="table table-bordered table-hover">
-                <thead class="thead-light">
+            <thead class="thead-light">
                 <tr>
-                  <th scope="col">Id</th>
-                  <th scope="col">Payee Name</th>
-                  <th scope="col">Payee Account Number</th>
-                  <th scope="col">Action</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Payee Name</th>
+                    <th scope="col">Payee Account Number</th>
+                    <th scope="col">Action</th>
                 </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let item of payeeDetails">
-                  <th>{{item.id}}</th>
-                  <td>{{item.acctname}}</td>
-                  <td>{{item.acctnumber}}</td>
-                  <td>
-                      <button (click)="editPayee(item)" class="btn btn-secondary">Edit</button> 
-                     &nbsp;&nbsp;| &nbsp;&nbsp;
-                       <button (click)="deletePayee(item)" class="btn btn-secondary">Delete</button>
-                  </td>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of payeeDetails | myfilter:filterargs">
+                    <th>{{item.id}}</th>
+                    <td>{{item.acctname}}</td>
+                    <td>{{item.acctnumber}}</td>
+                    <td>
+                        <button (click)="editPayee(item)" class="btn btn-outline-dark">Edit</button>
+                        &nbsp;&nbsp;| &nbsp;&nbsp;
+                        <button (click)="deletePayee(item)" class="btn btn-outline-dark">Delete</button>
+                    </td>
                 </tr>
-                </tbody>  
+            </tbody>
         </table>
     </div>
 </div>
-<app-popup-focus [status]="showModel" [details]="arrObj"  (payeeId)="confirmModel($event);" (close)="closeModel($event);"></app-popup-focus>
+
+<app-popup-focus [status]="showModel" [details]="arrObj" (payeeId)="confirmModel($event);"
+    (close)="closeModel($event);"></app-popup-focus>

@@ -17,6 +17,8 @@ import { PayeeComponent } from './payee/payee.component';
 import { FundsComponent } from './funds/funds.component';
 import { HistoryComponent } from './history/history.component';
 import { PopupFocusComponent } from './popup-focus/popup-focus.component';
+import { MyFilterPipe } from './payee/pipe';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { PopupFocusComponent } from './popup-focus/popup-focus.component';
     PayeeComponent,
     FundsComponent,
     HistoryComponent,
-    PopupFocusComponent
+    PopupFocusComponent,
+    MyFilterPipe,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

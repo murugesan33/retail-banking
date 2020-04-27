@@ -1,49 +1,69 @@
-<div class="row justify-content-center">
-    <div class="col-md-5">
-            <div class="card">
-                <div class="card-header">Funds Transfer</div>
-               
-                <div class="card-body">
-                    <form name="my-form" [formGroup]="fundsForm" (ngSubmit)="onSubmit()">
-                        <div class="form-group row">
-                            <label for="full_name" class="col-md-4 col-form-label text-md-right">Transfer from</label>
-                            <div class="col-md-6">
-                                <select class="custom-select" formControlName="transfrom" [ngClass] ="{'is-invalid': (transfrom.dirty || transfrom.touched) && transfrom.errors}">
-                                    <option value="">Choose account</option>
-                                    <option *ngFor="let item of payfrom" [ngValue]="item">{{item}}</option>
-                                  </select>
-                            </div>
+
+<div class="row justify-content-center mx-0 py-3">
+    {{payfrom}}
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Funds Transfer</div>
+            <div class="text-danger text-center">{{errMsg}}</div>
+            <app-spinner [status]="showModel"></app-spinner>
+            <div class="card-body">
+                <form name="my-form" [formGroup]="fundsForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group row">
+                        <label for="full_name" class="col-md-4 col-form-label text-md-right">Transfer from</label>
+                        <div class="col-md-6">
+                            <select class="custom-select ui-inputtext" formControlName="transfrom">
+                                <option value="">Choose account</option>
+                                <option *ngFor="let item of payfrom" [ngValue]="item.facNum">{{item.facNam}}</option>
+                            </select>
+                            <small
+                                *ngIf="transfrom.invalid && (transfrom.dirty || transfrom.touched) && transfrom.errors "
+                                class="text-danger">
+                                Transfer from is required!.
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="email_address" class="col-md-4 col-form-label text-md-right">Transfer to</label>
+                        <div class="col-md-6">
+                            <select class="custom-select ui-inputtext" formControlName="transto">
+                                <option value="">Choose account</option>
+                                <option *ngFor="let item of payto" [ngValue]="item">{{item.tacNam}}</option>
+                            </select>
+                            <small *ngIf="transto.invalid && (transto.dirty || transto.touched) && transto.errors"
+                                class="text-danger">
+                                Transfer to is required!.
+                            </small>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email_address" class="col-md-4 col-form-label text-md-right">Transfer to</label>
-                            <div class="col-md-6">
-                                <select class="custom-select"  formControlName="transto" [ngClass] ="{'is-invalid': (transto.dirty || transto.touched) && transto.errors}">
-                                    <option value="">Choose account</option>
-                                    <option *ngFor="let item of payto" [ngValue]="item">{{item}}</option>
-                                  </select>
-                            </div>
-                            
-                        </div>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="user_name" class="col-md-4 col-form-label text-md-right">Amount</label>
-                            <div class="col-md-6">
-                                <input type="text" id="amount" class="form-control" formControlName="amount" [ngClass]="{'is-invalid':(amount.dirty || amount.touched) && amount.errors}">
-                            </div>
+                    <div class="form-group row">
+                        <label for="user_name" class="col-md-4 col-form-label text-md-right">Amount</label>
+                        <div class="col-md-6">
+                            <input type="text" id="amount" class="form-control ui-inputtext" formControlName="amount">
+                            <small *ngIf="amount.invalid && (amount.dirty || amount.touched) && amount.errors?.required"
+                                class="text-danger">
+                                Amount is required!.
+                            </small>
+                            <small *ngIf="amount.invalid && (amount.dirty || amount.touched) && amount.errors?.pattern"
+                                class="text-danger">
+                                Amount should be integer / decimal number.
+                            </small>
                         </div>
-                        
-                        <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
+                    </div>
+
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">
                             Proceed To Pay
-                            </button>
-                            &nbsp;&nbsp;
-                                        <button type="button" class="btn btn-danger" (click)="Cancelfunds()">
-                                            Cancel
-                                            </button>
-                        </div>
-                    </form>
-                </div>   
-        </div>         
+                        </button>
+                        &nbsp;&nbsp;
+                        <button type="button" class="btn btn-danger" (click)="Cancelfunds()">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>  
+</div>
